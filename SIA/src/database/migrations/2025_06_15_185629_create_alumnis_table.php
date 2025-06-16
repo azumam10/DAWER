@@ -22,6 +22,7 @@ return new class extends Migration
             $table->year('angkatan');
             $table->string('pekerjaan')->nullable();
             $table->enum('status_alumni', ['aktif', 'tidak_aktif', 'meninggal']);
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

@@ -41,27 +41,45 @@ class LokerDistribusiManualResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('alumni_id')
-                    ->numeric()
+                    ->label('ID Alumni')
                     ->sortable(),
+
+                Tables\Columns\TextColumn::make('alumni.nama_lengkap')
+                    ->label('Nama Alumni')
+                    ->searchable()
+                    ->sortable(),
+
                 Tables\Columns\TextColumn::make('loker_id')
-                    ->numeric()
+                    ->label('ID Loker')
                     ->sortable(),
+
+                Tables\Columns\TextColumn::make('loker.judul_loker')
+                    ->label('Judul Loker')
+                    ->searchable()
+                    ->sortable(),
+
                 Tables\Columns\TextColumn::make('status_kirim'),
+
                 Tables\Columns\TextColumn::make('waktu_kirim')
                     ->dateTime()
                     ->sortable(),
+
+                Tables\Columns\ImageColumn::make('alumni.foto')
+                    ->label('Foto Alumni')
+                    ->disk('public')
+                    ->circular(),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])

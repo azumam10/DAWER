@@ -26,4 +26,9 @@ class Jurusan extends Model
     {
         return $this->hasMany(Event::class, 'target_jurusan_id');
     }
+
+    public function getNamaDenganIdAttribute(): string
+    {
+        return "{$this->nama_jurusan} - ID Jurusan: {$this->id}";
+    }
 }

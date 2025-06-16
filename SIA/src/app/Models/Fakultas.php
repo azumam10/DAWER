@@ -26,4 +26,9 @@ class Fakultas extends Model
     {
         return $this->hasMany(Event::class, 'target_fakultas_id');
     }
+
+    public function fakultas()
+    {
+        return $this->belongsTo(Fakultas::class);
+    }
 }

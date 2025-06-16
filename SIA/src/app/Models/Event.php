@@ -12,7 +12,7 @@ class Event extends Model
     protected $table = 'events';
     protected $fillable = [
         'judul_event', 'deskripsi', 'tanggal_mulai', 'tanggal_selesai',
-        'lokasi', 'target_fakultas_id', 'target_jurusan_id', 'target_angkatan'
+        'lokasi', 'foto_event', 'target_fakultas_id', 'target_jurusan_id', 'target_angkatan'
     ];
 
     public function fakultas()
@@ -24,4 +24,15 @@ class Event extends Model
     {
         return $this->belongsTo(Jurusan::class, 'target_jurusan_id');
     }
+
+    public function targetFakultas()
+    {
+        return $this->belongsTo(Fakultas::class, 'target_fakultas_id');
+    }
+
+    public function targetJurusan()
+    {
+        return $this->belongsTo(Jurusan::class, 'target_jurusan_id');
+    }
+
 }

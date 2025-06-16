@@ -36,23 +36,34 @@ class JurusanResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('fakultas_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID Jurusan')
                     ->sortable(),
+
                 Tables\Columns\TextColumn::make('nama_jurusan')
+                    ->label('Nama Jurusan')
                     ->searchable(),
+
+                Tables\Columns\TextColumn::make('fakultas_id')
+                    ->label('ID Fakultas')
+                    ->sortable(),
+
+                Tables\Columns\TextColumn::make('fakultas.nama_fakultas')
+                    ->label('Nama Fakultas')
+                    ->sortable()
+                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
@@ -62,7 +73,7 @@ class JurusanResource extends Resource
                 ]),
             ]);
     }
-
+    
     public static function getRelations(): array
     {
         return [

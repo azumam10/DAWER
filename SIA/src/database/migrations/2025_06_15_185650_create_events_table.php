@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('target_fakultas_id')->nullable()->constrained('fakultas')->nullOnDelete();
             $table->foreignId('target_jurusan_id')->nullable()->constrained('jurusan')->nullOnDelete();
             $table->year('target_angkatan')->nullable();
+            $table->string('foto_event')->nullable();
             $table->timestamps();
         });
     }

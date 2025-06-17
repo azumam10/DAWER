@@ -126,4 +126,11 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
     }
+        public static function getWidgets(): array
+    {
+        return [
+            \App\Filament\Admin\Widgets\Belum_Bekerja::class,
+            \App\Filament\Admin\Widgets\Bekerja::class,
+        ];
+    }
 }

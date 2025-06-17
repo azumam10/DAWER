@@ -14,7 +14,7 @@ class Alumni extends Model
         'nama_lengkap', 'nim', 'email', 'no_hp', 'foto',
         'fakultas_id', 'jurusan_id', 'angkatan', 'pekerjaan', 'status_alumni'
     ];
-    
+
     public function fakultas()
     {
         return $this->belongsTo(Fakultas::class);

@@ -50,6 +50,9 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->widgets([
                 \Awcodes\Overlook\Widgets\OverlookWidget::class,
+                \App\Filament\Admin\Widgets\Belum_Bekerja::class,
+                \App\Filament\Admin\Widgets\Bekerja::class,
+                \App\Filament\Admin\Widgets\DataAlumni::class,
             ])
             ->navigationGroups([
                 NavigationGroup::make()
@@ -125,12 +128,5 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
-    }
-        public static function getWidgets(): array
-    {
-        return [
-            \App\Filament\Admin\Widgets\Belum_Bekerja::class,
-            \App\Filament\Admin\Widgets\Bekerja::class,
-        ];
     }
 }
